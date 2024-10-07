@@ -4,7 +4,7 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import GuestLayout from "@/Layouts/GuestLayout";
 import { Head, Link, useForm } from "@inertiajs/react";
-import { useEffect } from "react";
+import { useEffect, FormEvent } from "react";
 
 export default function Register() {
     const { data, setData, post, processing, errors, reset } = useForm({
@@ -20,7 +20,7 @@ export default function Register() {
         };
     }, []);
 
-    const submit = (e: { preventDefault: () => void; }) => {
+    const submit =  (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         post(route("register"));

@@ -4,7 +4,7 @@ import PrimaryButton from "@/Components/PrimaryButton";
 import TextInput from "@/Components/TextInput";
 import GuestLayout from "@/Layouts/GuestLayout";
 import { Head, useForm } from "@inertiajs/react";
-import { useEffect } from "react";
+import { useEffect, FormEvent } from "react";
 
 interface props {
     token: string;
@@ -25,7 +25,7 @@ export default function ResetPassword({ token, email }: props) {
         };
     }, []);
 
-    const submit = (e: { preventDefault: () => void; }) => {
+    const submit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         post(route("password.store"));

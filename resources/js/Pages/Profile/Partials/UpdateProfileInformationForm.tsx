@@ -2,6 +2,8 @@ import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import TextInput from "@/Components/TextInput";
 import { Link, useForm, usePage } from "@inertiajs/react";
+import { FormEvent } from "react";
+
 
 import { Button } from "@/Components/ui/button";
 import {
@@ -33,7 +35,7 @@ export default function UpdateProfileInformation({
             email: user.email,
         });
 
-    const submit = (e: {preventDefault: ()=> void}) => {
+    const submit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         patch(route("profile.update"));

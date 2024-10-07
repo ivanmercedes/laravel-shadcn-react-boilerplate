@@ -2,7 +2,7 @@ import InputError from "@/Components/InputError";
 import InputLabel from "@/Components/InputLabel";
 import TextInput from "@/Components/TextInput";
 import { useForm } from "@inertiajs/react";
-import { useRef } from "react";
+import { useRef, FormEvent } from "react";
 
 import { Button } from "@/Components/ui/button";
 import {
@@ -32,7 +32,7 @@ export default function UpdatePasswordForm({ className = "" }) {
         password_confirmation: "",
     });
 
-    const updatePassword = (e: { preventDefault: () => void; }) => {
+    const updatePassword =  (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         put(route("password.update"), {

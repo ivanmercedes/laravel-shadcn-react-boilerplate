@@ -3,7 +3,7 @@ import InputLabel from "@/Components/InputLabel";
 import Modal from "@/Components/Modal";
 import TextInput from "@/Components/TextInput";
 import { useForm } from "@inertiajs/react";
-import { useRef, useState } from "react";
+import { useRef, useState, FormEvent } from "react";
 
 import { Button } from "@/Components/ui/button";
 import {
@@ -34,7 +34,7 @@ export default function DeleteUserForm({ className = "" }) {
         setConfirmingUserDeletion(true);
     };
 
-    const deleteUser = (e: { preventDefault: () => void; }) => {
+    const deleteUser = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         destroy(route("profile.destroy"), {
